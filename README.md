@@ -6,7 +6,9 @@ We need a place to store test presentations. I suggest a folder called /tests
 We need a place to store the code. I suggest a filder called /src
 
 How to set up the dev env:
+
   initally: 
+  
     - After installing all required packages in your virtual environment, run: 
     
       pip freeze > requirements.txt
