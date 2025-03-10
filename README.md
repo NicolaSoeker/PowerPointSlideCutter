@@ -43,10 +43,8 @@ Sub SplitSlidesIntoSeparatePresentations()
     MsgBox "Slides saved in " & outputFolder, vbInformation, "Done!"
 End Sub
 
-
-
-Run the script (Press F5 in VBA).
-PowerPoint will create a folder with each slide as a separate PowerPoint file.
+- Run the script (Press F5 in VBA).
+- PowerPoint will create a folder with each slide as a separate PowerPoint file.
 
 
 
