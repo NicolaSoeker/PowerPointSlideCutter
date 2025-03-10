@@ -11,7 +11,9 @@ How to set up the dev env:
   
   second setup: 
     - python -m venv myenv  # Create a virtual environment
+    
       source myenv/bin/activate  # Activate it (Linux/macOS)
+      
       myenv\Scripts\activate  # Activate it (Windows)
   
       pip install -r requirements.txt  # Install dependencies
