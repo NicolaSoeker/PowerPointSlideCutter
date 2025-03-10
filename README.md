@@ -7,8 +7,8 @@ Best Solution: Using VBA to Duplicate Slides
 
 Steps:
 
-    Open PowerPoint and press ALT + F11 to open the VBA editor.
-    Paste this VBA code in a module:
+- Open PowerPoint and press ALT + F11 to open the VBA editor.
+- Paste this VBA code in a module:
 
 Sub SplitSlidesIntoSeparatePresentations()
     Dim oPres As Presentation
