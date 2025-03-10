@@ -2,7 +2,7 @@
 Cuts Power Point many Slides into Seperate Peresntations. Given there is a power point with multiple slides in it. We want to have a powerpoint for each slide containing only that slide. 
 
 Acording to Chatti (https://chatgpt.com/share/67cf3047-3c4c-8002-a416-62495ed32df3)
-Best Solution: Using VBA to Duplicate Slides
+Best Solution: Using VBA to Duplicate Slides (the last two answers after all the python talk)
 
 
 ## Steps:
