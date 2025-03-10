@@ -10,7 +10,7 @@ Steps:
 - Open PowerPoint and press ALT + F11 to open the VBA editor.
 - Paste this VBA code in a module:
 
-"""
+```
 Sub SplitSlidesIntoSeparatePresentations()
     Dim oPres As Presentation
     Dim oNewPres As Presentation
@@ -43,7 +43,8 @@ Sub SplitSlidesIntoSeparatePresentations()
     
     MsgBox "Slides saved in " & outputFolder, vbInformation, "Done!"
 End Sub
-"""
+```
+
 - Run the script (Press F5 in VBA).
 - PowerPoint will create a folder with each slide as a separate PowerPoint file.
 
