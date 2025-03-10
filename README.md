@@ -3,7 +3,7 @@ Cuts Power Point many Slides into Seperate Peresntations. Given there is a power
 
 We need a place to store test presentations. I suggest a folder called /tests
 
-We need a place to store the code. I suggest a filder called /src
+We need a place to store the code. I suggest a folder called /src
 
 How to set up the dev env:
 
