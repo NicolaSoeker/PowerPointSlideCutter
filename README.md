@@ -54,7 +54,7 @@ End Sub
 
 
 
-📌 Steps to Paste and Run the VBA Code in PowerPoint
+📌 Steps to Paste and Run the VBA Code in PowerPoint (for VBA Newbies)
 
 1️⃣ Open PowerPoint and load your presentation.
 2️⃣ Open the VBA Editor:
