@@ -7,9 +7,7 @@ We need a place to store the code. I suggest a filder called /src
 
 How to set up the dev env:
 
-  initally: 
-  
-    - After installing all required packages in your virtual environment, run: 
+  initally, after installing all required packages in your virtual environment, run: 
     
       pip freeze > requirements.txt
   
