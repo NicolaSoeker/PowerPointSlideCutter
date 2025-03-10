@@ -5,7 +5,7 @@ Acording to Chatti (https://chatgpt.com/share/67cf3047-3c4c-8002-a416-62495ed32d
 Best Solution: Using VBA to Duplicate Slides
 
 
-Steps:
+## Steps:
 
 - Open PowerPoint and press ALT + F11 to open the VBA editor.
 - Paste this VBA code in a module:
@@ -54,7 +54,7 @@ End Sub
 
 
 
-📌 Steps to Paste and Run the VBA Code in PowerPoint (for VBA Newbies)
+## 📌 Steps to Paste and Run the VBA Code in PowerPoint (for VBA Newbies)
 
 1️⃣ Open PowerPoint and load your presentation.
 2️⃣ Open the VBA Editor:
