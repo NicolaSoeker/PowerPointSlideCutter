@@ -1,4 +1,3 @@
-Attribute VB_Name = "Module2"
 Sub SplitSlidesIntoSeparatePresentations()
     Dim oPres As Presentation
     Dim oNewPres As Presentation
@@ -10,11 +9,20 @@ Sub SplitSlidesIntoSeparatePresentations()
     Dim existingTitles As Collection
     Dim titleCount As Integer
     Dim uniqueTitle As String
+    Dim margin_top As Single
+    Dim margin_left As Single
+    Dim width As Single
+
+    ' Set your margin (in points)
+    margin_top = 100
+    margin_left = 200
     
     ' Set active presentation
     Set oPres = ActivePresentation
     
     ' Define output folder
+    
+    ' If exists, delete and make new
     outputFolder = oPres.Path & "\Split_Slides\"
     MkDir outputFolder
     
@@ -46,17 +54,32 @@ Sub SplitSlidesIntoSeparatePresentations()
                 Set firstShape = oPres.Slides(i).Shapes(j)
                 Debug.Print firstShape.Name
                 
-                ' Check if the shape has a text frame and contains text
                 If firstShape.HasTextFrame Then
                     If firstShape.TextFrame.HasText Then
-                        slideTitle = firstShape.TextFrame.TextRange.Text
-                        shapeFound = True
-                        Debug.Print "Slide Title: " & slideTitle
-                        Exit For ' Exit the loop once the first text-containing shape is found
+                    
+                        Debug.Print "Top"; firstShape.Top
+                        With Application.ActivePresentation.PageSetup
+                          width = .SlideWidth
+                          Height = .SlideHeight
+                        Debug.Print "Width"; width
+                        Debug.Print "Height"; Height
+                        End With
+                        Debug.Print "Left"; firstShape.Left
+                        
+                        ' Check if the shape is within the top-right corner with the defined margin
+                        If firstShape.Top < margin_top And firstShape.Left < margin_left Then
+                            FontSize = firstShape.TextFrame.TextRange.Font.Size
+                                If FontSize > 18 Then
+                                    slideTitle = firstShape.TextFrame.TextRange.Text
+                                    shapeFound = True
+                                    Debug.Print "Slide Title: " & slideTitle
+                                    Exit For ' Exit the loop once the first text-containing shape is found
+                                End If
+                        End If
                     End If
                 End If
             Next j
-            
+
             If Not shapeFound Then
                 Debug.Print "No text found in any shape on slide " & i
             End If
@@ -116,3 +139,4 @@ Function CleanFileName(fileName As String) As String
     ' Return cleaned file name
     CleanFileName = Trim(fileName)
 End Function
+
