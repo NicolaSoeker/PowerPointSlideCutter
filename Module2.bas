@@ -21,10 +21,8 @@ Sub SplitSlidesIntoSeparatePresentations()
     Set oPres = ActivePresentation
     
     ' Define output folder
-    
-    ' If exists, delete and make new
     outputFolder = oPres.Path & "\Split_Slides\"
-    MkDir outputFolder
+    CreateOutputFolder (outputFolder)
     
     ' Initialize the collection for existing titles
     Set existingTitles = New Collection
@@ -129,7 +127,7 @@ Function CleanFileName(fileName As String) As String
     Dim i As Integer
     
     ' Define invalid characters for file names
-    invalidChars = "/\:*?""<>|"
+    invalidChars = "\/:*?""<>|°" & ChrW(&H2070) & ChrW(&H2296) & ChrW(&H2103) & ChrW(&H2109)
     
     ' Replace invalid characters with an underscore
     For i = 1 To Len(invalidChars)
@@ -140,3 +138,49 @@ Function CleanFileName(fileName As String) As String
     CleanFileName = Trim(fileName)
 End Function
 
+Function CreateOutputFolder(outputFolder As String) As String
+    Debug.Print outputFolder
+    
+    ' Check if the folder exists
+    If Dir(outputFolder, vbDirectory) <> "" Then
+        ' If it exists, delete the folder and its contents
+        On Error Resume Next ' Ignore errors if the folder is not empty
+        
+        ' Delete all files in the folder
+        Dim fileName As String
+        fileName = Dir(outputFolder & "*.*") ' Get the first file
+        
+        ' Loop through all files in the folder
+        Do While fileName <> ""
+            ' Clean the file name to remove invalid characters
+            Dim cleanedFileName As String
+            cleanedFileName = CleanFileName(fileName)
+            
+            ' Only attempt to delete if the cleaned file name is not empty
+            If cleanedFileName <> "" Then
+                Debug.Print "Attempting to delete file: " & outputFolder & cleanedFileName ' Print the full file path
+                Kill outputFolder & cleanedFileName ' Delete the file
+                If Err.Number <> 0 Then
+                    Debug.Print "Error deleting file: " & outputFolder & cleanedFileName & " - " & Err.Description
+                    Err.Clear ' Clear the error for the next iteration
+                End If
+            Else
+                Debug.Print "Invalid file name: " & fileName ' Log invalid file names
+            End If
+            
+            fileName = Dir ' Get the next file
+        Loop
+        
+        ' Now remove the folder
+        RmDir outputFolder ' Remove the folder
+        On Error GoTo 0 ' Turn error handling back on
+    End If
+    
+    Debug.Print outputFolder
+    
+    ' Create the new folder
+    MkDir outputFolder
+    
+    ' Return the path of the newly created folder
+    CreateOutputFolder = outputFolder
+End Function
