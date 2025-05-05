@@ -10,7 +10,7 @@ Cuts a Power Point presentation into seperate slides.
 
 
 ## Make macro persistent
-# This is still a problem -> it does not work (although I said it would...)
+### This is still a problem -> it does not work (although I said it would...)
 
 You save the macro-enabled template as a PowerPoint Add-in (*.ppam). PowerPoint should automatically place this in AppData\Microsoft\AddIns in your user folder. Then you load it into PowerPoint using File>Options>Add-ins. Change the Manage dropdown to PowerPoint Add-ins and click on the Go button. In the Add-ins dialog, click on Add New, then select your addin and click on the Open button. Back in the Add-ins dialog, double-check that your add-in has a check mark beside it, then OK out.
 
